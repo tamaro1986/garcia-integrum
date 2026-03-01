@@ -1,0 +1,454 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════
+   NEURAL 'G' — García Audit & Tech Strategy
+   Design System Variables
+   ═══════════════════════════════════════════ */
+
+:root {
+  /* Brand Core */
+  --oxford: #0A2540;
+  --emerald: #059669;
+  --slate-blue: #6772E5;
+
+  /* Secondary */
+  --soft-slate: #F8FAFC;
+  --charcoal: #1E293B;
+  --cool-grey: #E2E8F0;
+
+  /* Semantic */
+  --success: #10B981;
+  --danger: #EF4444;
+  --warning: #F59E0B;
+  --ai: #8B5CF6;
+
+  /* Layout */
+  --background: #F8FAFC;
+  --foreground: #1E293B;
+}
+
+.dark {
+  --background: #0A2540;
+  --foreground: #F8FAFC;
+}
+
+/* ═══════════════════════════════════════════
+   BASE
+   ═══════════════════════════════════════════ */
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold tracking-tight;
+    color: var(--oxford);
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl lg:text-4xl;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   COMPONENTS
+   ═══════════════════════════════════════════ */
+@layer components {
+
+  /* ── Glassmorphism ── */
+  .glass-card {
+    @apply bg-white/90 backdrop-blur-xl border border-white/30 shadow-glass;
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300 hover:shadow-glass-lg hover:scale-[1.02];
+  }
+
+  /* ── Buttons (Neural G) ── */
+  .btn-primary {
+    background-color: var(--oxford);
+    @apply text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:scale-[0.98] active:scale-95 shadow-elevation-2 hover:shadow-elevation-3;
+  }
+
+  .btn-primary:hover {
+    background-color: #123660;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-zinc-900 font-semibold px-6 py-3 rounded-lg border transition-all duration-200 hover:scale-[0.98] active:scale-95;
+    border-color: var(--cool-grey);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--emerald);
+  }
+
+  .btn-ghost {
+    color: var(--oxford);
+    @apply bg-transparent font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:scale-[0.98];
+  }
+
+  .btn-ghost:hover {
+    background-color: #e6edf5;
+  }
+
+  .btn-emerald {
+    background-color: var(--emerald);
+    @apply text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:scale-[0.98] active:scale-95 shadow-emerald;
+  }
+
+  .btn-emerald:hover {
+    background-color: #047857;
+  }
+
+  /* ── Inputs ── */
+  .input-field {
+    @apply w-full px-4 py-3 rounded-lg bg-white text-zinc-900 focus:outline-none focus:ring-2 transition-all duration-200;
+    border: 1px solid var(--cool-grey);
+  }
+
+  .input-field:focus {
+    border-color: var(--oxford);
+    box-shadow: 0 0 0 2px rgba(10, 37, 64, 0.15);
+  }
+
+  .select-field {
+    @apply w-full px-4 py-3 rounded-lg bg-white text-zinc-900 focus:outline-none focus:ring-2 transition-all duration-200 appearance-none cursor-pointer;
+    border: 1px solid var(--cool-grey);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%230A2540' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+  }
+
+  .select-field:focus {
+    border-color: var(--oxford);
+    box-shadow: 0 0 0 2px rgba(10, 37, 64, 0.15);
+  }
+
+  .textarea-field {
+    @apply w-full px-4 py-3 rounded-lg bg-white text-zinc-900 focus:outline-none focus:ring-2 transition-all duration-200 resize-y min-h-[120px];
+    border: 1px solid var(--cool-grey);
+  }
+
+  .textarea-field:focus {
+    border-color: var(--oxford);
+    box-shadow: 0 0 0 2px rgba(10, 37, 64, 0.15);
+  }
+
+  /* ── Cards ── */
+  .card {
+    @apply bg-white rounded-2xl shadow-elevation-1 p-6;
+    border: 1px solid var(--cool-grey);
+    color: var(--charcoal);
+  }
+
+  .card-hover {
+    @apply card transition-all duration-300 hover:shadow-elevation-3 hover:-translate-y-1;
+  }
+
+  /* ── Container ── */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* ── Background Patterns ── */
+  .gradient-bg {
+    background: linear-gradient(180deg, #F8FAFC 0%, #ffffff 50%, #e6edf5 100%);
+  }
+
+  .section-dark {
+    background: linear-gradient(135deg, #0A2540 0%, #123660 50%, #0A2540 100%);
+    @apply text-white;
+  }
+
+  .section-dark h2,
+  .section-dark h3,
+  .section-dark h4 {
+    color: #ffffff;
+  }
+
+  .section-alt {
+    background-color: var(--soft-slate);
+  }
+
+  /* ── Pillar Cards (Neural G) ── */
+  .pillar-card {
+    @apply relative bg-white rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-elevation-3 hover:-translate-y-2;
+    border: 1px solid var(--cool-grey);
+  }
+
+  .pillar-card__accent {
+    @apply absolute top-0 left-0 w-1.5 h-full;
+  }
+
+  .pillar-card__icon-wrap {
+    @apply w-14 h-14 rounded-xl flex items-center justify-center mb-5;
+  }
+
+  .pillar-card__pain {
+    @apply text-sm italic border-l-2 pl-4 my-5;
+    color: #64748b;
+    border-color: var(--cool-grey);
+  }
+
+  /* ── Trust Badge ── */
+  .trust-badge {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-xs font-semibold uppercase tracking-wider shadow-sm;
+    border: 1px solid var(--cool-grey);
+    color: var(--oxford);
+  }
+
+  /* ── Timeline ── */
+  .timeline-step {
+    @apply relative flex flex-col items-center text-center;
+  }
+
+  .timeline-step__number {
+    @apply w-14 h-14 rounded-full text-white flex items-center justify-center text-xl font-black mb-4 shadow-lg relative z-10;
+    background-color: var(--oxford);
+  }
+
+  .timeline-step__connector {
+    @apply hidden md:block absolute top-7 left-[calc(50%+28px)] w-[calc(100%-56px)] h-0.5;
+    background-color: var(--cool-grey);
+  }
+
+  /* ── Stats ── */
+  .stat-counter {
+    @apply text-center;
+  }
+
+  .stat-counter__number {
+    @apply text-4xl lg:text-5xl font-black mb-1;
+    color: var(--emerald);
+  }
+
+  .stat-counter__label {
+    @apply text-xs uppercase tracking-widest font-bold;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  /* ── Testimonials ── */
+  .testimonial-card {
+    @apply bg-white rounded-2xl p-8 shadow-sm relative;
+    border: 1px solid var(--cool-grey);
+  }
+
+  .testimonial-card__quote {
+    @apply absolute -top-3 left-6 text-5xl font-serif leading-none;
+    color: var(--emerald);
+    opacity: 0.4;
+  }
+
+  /* ── Diaspora Banner (Colores nacionales) ── */
+  .diaspora-banner {
+    background: linear-gradient(135deg, #0A2540 0%, #1a4a7e 40%, #059669 70%, #10B981 100%);
+    @apply rounded-3xl overflow-hidden shadow-xl;
+  }
+
+  /* ── Form Section ── */
+  .form-section {
+    @apply bg-white rounded-2xl shadow-elevation-2 p-8 md:p-12;
+    border: 1px solid var(--cool-grey);
+  }
+
+  /* ── Why Us ── */
+  .why-card {
+    @apply flex items-start gap-4 p-6 rounded-xl bg-white transition-all duration-300 hover:shadow-md hover:-translate-y-1;
+    border: 1px solid rgba(226, 232, 240, 0.5);
+  }
+
+  .why-card__icon {
+    @apply w-12 h-12 rounded-xl flex-shrink-0 flex items-center justify-center;
+  }
+
+  /* ── Credential Bar ── */
+  .credential-bar {
+    @apply flex flex-wrap items-center justify-center gap-6 py-8;
+    border-top: 1px solid var(--cool-grey);
+    border-bottom: 1px solid var(--cool-grey);
+  }
+
+  .credential-item {
+    @apply flex items-center gap-2 text-xs font-bold uppercase tracking-widest;
+    color: var(--oxford);
+    opacity: 0.6;
+  }
+
+  /* ── Enterprise BEM (Admin) ── */
+  .enterprise-module {
+    @apply min-h-screen p-8;
+    background-color: var(--soft-slate);
+  }
+
+  .enterprise-module--auditoria {
+    border-left: 4px solid var(--oxford);
+  }
+
+  .enterprise-module--analitica {
+    border-left: 4px solid var(--warning);
+  }
+
+  .enterprise-module--ia {
+    border-left: 4px solid var(--slate-blue);
+  }
+
+  .enterprise-module__header {
+    @apply mb-10;
+  }
+
+  .enterprise-module__title {
+    @apply text-3xl font-extrabold mb-2;
+    color: var(--oxford);
+  }
+
+  .enterprise-module__description {
+    color: #64748b;
+    @apply max-w-2xl;
+  }
+
+  .enterprise-module__grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+
+  .enterprise-card {
+    @apply bg-white rounded-xl shadow-sm overflow-hidden transition-all duration-200 hover:shadow-md;
+    border: 1px solid var(--cool-grey);
+  }
+
+  .enterprise-card__header {
+    @apply px-6 py-4 text-sm font-semibold uppercase tracking-wider;
+    background-color: var(--soft-slate);
+    border-bottom: 1px solid var(--cool-grey);
+    color: #64748b;
+  }
+
+  .enterprise-card__body {
+    @apply p-6;
+  }
+
+  .enterprise-card__body--centered {
+    @apply flex items-center justify-center min-h-[200px];
+  }
+
+  .status-indicator {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .status-indicator--active {
+    background-color: #ecfdf5;
+    color: var(--emerald);
+  }
+
+  .agent-list {
+    @apply space-y-3;
+  }
+
+  .agent-list__item {
+    @apply flex items-center text-sm font-medium;
+    color: var(--charcoal);
+  }
+
+  .agent-list__item--online::before {
+    content: "";
+    @apply w-2 h-2 rounded-full mr-3 animate-pulse;
+    background-color: var(--emerald);
+  }
+}
+
+/* ═══════════════════════════════════════════
+   UTILITIES
+   ═══════════════════════════════════════════ */
+@layer utilities {
+
+  /* Brand Text Gradient: Oxford → Emerald */
+  .text-gradient {
+    background: linear-gradient(135deg, var(--oxford) 0%, var(--emerald) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* IA Text Gradient: Slate Blue → AI Violet */
+  .text-gradient-ai {
+    background: linear-gradient(135deg, var(--slate-blue) 0%, var(--ai) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Full Brand Gradient: Oxford → Emerald → Slate Blue */
+  .text-gradient-full {
+    background: linear-gradient(135deg, var(--oxford) 0%, var(--emerald) 50%, var(--slate-blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .smooth-scroll {
+    scroll-behavior: smooth;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════ */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+  background-size: 1000px 100%;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
