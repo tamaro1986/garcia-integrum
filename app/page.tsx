@@ -6,7 +6,7 @@ import {
   Globe, Zap, Award, FileCheck,
   Phone, Mail, MapPin, ChevronRight, Send, Clock,
   Layers, Target, Lightbulb, Scale,
-  BrainCircuit
+  BrainCircuit, MessageCircle
 } from 'lucide-react';
 import { Button } from '@/components/ui';
 import Link from 'next/link';
@@ -49,7 +49,7 @@ export default function HomePage() {
     e.preventDefault();
     try {
       // Enviar datos a formsubmit.co mediante AJAX (requiere confirmar el primer correo)
-      await fetch("https://formsubmit.co/ajax/info@garciaintegrum.com", {
+      await fetch("https://formsubmit.co/ajax/negocios.garcia1986@gmail.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -64,6 +64,29 @@ export default function HomePage() {
       // para no bloquear la experiencia del usuario (idealmente añadiríamos manejo de errores)
       setSubmitted(true);
     }
+  };
+
+  const handleWhatsApp = () => {
+    const formEl = document.getElementById('contact-form') as HTMLFormElement;
+    if (formEl && !formEl.reportValidity()) return; // Valida los campos required de HTML
+
+    const { nombre, empresa, email, telefono, pais, servicio, urgencia, presupuesto, descripcion } = form;
+
+    let text = `*Nueva Solicitud de Propuesta - Garcia Integrum*\n\n`;
+    text += `*Nombre:* ${nombre}\n`;
+    text += `*Empresa:* ${empresa || 'N/A'}\n`;
+    text += `*Email:* ${email}\n`;
+    text += `*Teléfono:* ${telefono}\n`;
+    text += `*País:* ${pais}\n`;
+    text += `*Servicio:* ${servicio}\n`;
+    text += `*Urgencia:* ${urgencia || 'N/A'}\n`;
+    text += `*Presupuesto:* ${presupuesto || 'N/A'}\n\n`;
+    text += `*Descripción del proyecto:*\n${descripcion}`;
+
+    const encodedText = encodeURIComponent(text);
+    // Reemplaza "50370000000" con tu número real de WhatsApp con código de país, sin el +, por ejemplo 50388888888
+    const phoneNumber = "50370000000";
+    window.open(`https://wa.me/${phoneNumber}?text=${encodedText}`, '_blank');
   };
 
   const scrollTo = (id: string) => {
@@ -692,7 +715,7 @@ export default function HomePage() {
                 </Button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="form-section">
+              <form id="contact-form" onSubmit={handleSubmit} className="form-section">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-semibold mb-2" style={{ color: '#0A2540' }}>
@@ -788,15 +811,26 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="mt-8 text-center">
-                  <button
-                    type="submit"
-                    className="inline-flex items-center gap-2 px-12 h-14 text-lg font-bold rounded-xl text-white shadow-xl transition-all hover:scale-[0.98] active:scale-95"
-                    style={{ backgroundColor: '#0A2540' }}
-                  >
-                    <Send className="w-5 h-5" />
-                    Enviar Solicitud de Propuesta
-                  </button>
+                <div className="mt-8 text-center flex flex-col items-center">
+                  <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
+                    <button
+                      type="submit"
+                      className="inline-flex items-center justify-center gap-2 px-8 h-14 text-base font-bold rounded-xl text-white shadow-xl transition-all hover:scale-[0.98] active:scale-95 w-full sm:w-auto"
+                      style={{ backgroundColor: '#0A2540' }}
+                    >
+                      <Send className="w-5 h-5" />
+                      Enviar por Correo
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleWhatsApp}
+                      className="inline-flex items-center justify-center gap-2 px-8 h-14 text-base font-bold rounded-xl text-white shadow-xl transition-all hover:scale-[0.98] active:scale-95 w-full sm:w-auto"
+                      style={{ backgroundColor: '#25D366' }} // Color oficial de WhatsApp
+                    >
+                      <MessageCircle className="w-5 h-5" />
+                      Enviar por WhatsApp
+                    </button>
+                  </div>
                   <p className="text-xs mt-4 flex items-center justify-center gap-1" style={{ color: '#94a3b8' }}>
                     <Clock className="w-3 h-3" />
                     Respuesta garantizada en máximo 48 horas hábiles
