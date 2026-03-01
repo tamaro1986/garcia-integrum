@@ -85,7 +85,7 @@ export default function HomePage() {
 
     const encodedText = encodeURIComponent(text);
     // Reemplaza "50370000000" con tu número real de WhatsApp con código de país, sin el +, por ejemplo 50388888888
-    const phoneNumber = "50370000000";
+    const phoneNumber = "50375966836";
     window.open(`https://wa.me/${phoneNumber}?text=${encodedText}`, '_blank');
   };
 
@@ -881,10 +881,10 @@ export default function HomePage() {
                   <MapPin className="w-4 h-4" style={{ color: '#059669' }} /> San Salvador, El Salvador
                 </div>
                 <div className="flex items-center gap-3 text-sm" style={{ color: '#94a3b8' }}>
-                  <Mail className="w-4 h-4" style={{ color: '#059669' }} /> info@garciaintegrum.com
+                  <Mail className="w-4 h-4" style={{ color: '#059669' }} /> negocios.garcia1986@gmail.com
                 </div>
                 <div className="flex items-center gap-3 text-sm" style={{ color: '#94a3b8' }}>
-                  <Phone className="w-4 h-4" style={{ color: '#059669' }} /> +503 7000-0000
+                  <Phone className="w-4 h-4" style={{ color: '#059669' }} /> +503 7596-6836
                 </div>
               </div>
             </div>
