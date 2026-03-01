@@ -52,7 +52,7 @@ export default async function AdminLayout({
         <div className="min-h-screen gradient-bg">
             {/* Admin Header */}
             <header className="glass-card sticky top-0 z-50 shadow-sm border-b border-gray-100">
-                <div className="container-custom py-1 md:py-2">
+                <div className="container-custom py-2 md:py-2">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-8">
                             <Link href="/admin" className="flex items-center gap-2 group">
@@ -90,16 +90,32 @@ export default async function AdminLayout({
                             </nav>
                         </div>
                         <div className="flex items-center gap-4">
-                            <Link href="/" className="text-sm hover:text-primary-600 transition-colors">
+                            <Link href="/" className="text-xs md:text-sm hover:text-primary-600 transition-colors">
                                 Ver Tienda
                             </Link>
                             <form action="/api/auth/signout" method="post">
-                                <button className="text-sm font-medium text-danger-600 hover:text-danger-700">
+                                <button className="text-xs md:text-sm font-medium text-danger-600 hover:text-danger-700">
                                     Cerrar Sesión
                                 </button>
                             </form>
                         </div>
                     </div>
+                    {/* Mobile Navigation bar */}
+                    <nav className="flex md:hidden gap-5 overflow-x-auto pt-3 mt-2 border-t border-gray-100 pb-1" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                        {navItems.map((item) => {
+                            const Icon = item.icon;
+                            return (
+                                <Link
+                                    key={item.href}
+                                    href={item.href}
+                                    className="flex items-center gap-1.5 text-xs font-medium hover:text-primary-600 transition-colors whitespace-nowrap"
+                                >
+                                    <Icon className="w-3.5 h-3.5" />
+                                    {item.label}
+                                </Link>
+                            );
+                        })}
+                    </nav>
                 </div>
             </header>
 
