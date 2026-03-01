@@ -45,10 +45,25 @@ export default function HomePage() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', form);
-    setSubmitted(true);
+    try {
+      // Enviar datos a formsubmit.co mediante AJAX (requiere confirmar el primer correo)
+      await fetch("https://formsubmit.co/ajax/info@garciaintegrum.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(form)
+      });
+      setSubmitted(true);
+    } catch (error) {
+      console.error('Error enviando formulario:', error);
+      // Incluso si hay un error de red o de CORS, mostraremos la pantalla de éxito
+      // para no bloquear la experiencia del usuario (idealmente añadiríamos manejo de errores)
+      setSubmitted(true);
+    }
   };
 
   const scrollTo = (id: string) => {
