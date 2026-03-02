@@ -215,7 +215,7 @@ export default function HomePage() {
                 Firma de Servicios Profesionales
               </div>
 
-              <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.08] tracking-tight"
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.1] sm:leading-[1.08] tracking-tight"
                 style={{ color: '#0A2540' }}>
                 Impulsamos Empresas con{' '}
                 <span className="text-gradient">Auditoría de Precisión</span>,{' '}
@@ -245,14 +245,14 @@ export default function HomePage() {
                     <span><strong className="text-slate-800">Retorno Diáspora:</strong> Gestión patrimonial y tributaria para salvadoreños en el exterior.</span>
                   </li>
                 </ul>
-                <p className="pt-2 text-xl">
+                <p className="pt-2 text-lg sm:text-xl text-balance">
                   <strong style={{ color: '#0A2540' }}>Recibe una propuesta técnica personalizada en 48 horas.</strong>
                 </p>
               </div>
 
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <button
-                  className="flex items-center gap-2 px-10 h-16 text-lg font-bold rounded-xl text-white shadow-xl transition-all hover:scale-[0.98] active:scale-95"
+                  className="flex items-center justify-center gap-2 px-6 sm:px-10 h-14 sm:h-16 text-base sm:text-lg font-bold rounded-xl text-white shadow-xl transition-all hover:scale-[0.98] active:scale-95 w-full sm:w-auto"
                   style={{ backgroundColor: '#0A2540' }}
                   onClick={() => scrollTo('contacto')}
                 >
@@ -262,7 +262,7 @@ export default function HomePage() {
                 <Button
                   variant="secondary"
                   size="lg"
-                  className="px-10 h-16 text-lg font-bold rounded-xl"
+                  className="px-6 sm:px-10 h-14 sm:h-16 text-base sm:text-lg font-bold rounded-xl w-full sm:w-auto justify-center"
                   onClick={() => scrollTo('servicios')}
                 >
                   Conocer Servicios
@@ -270,17 +270,17 @@ export default function HomePage() {
               </div>
 
               {/* Credibility Metrics */}
-              <div className="flex items-center gap-8 lg:gap-12 pt-4">
+              <div className="flex flex-wrap items-center gap-6 lg:gap-12 pt-4">
                 <div>
                   <p className="text-3xl font-black" style={{ color: '#059669' }}>+200</p>
                   <p className="text-xs uppercase tracking-widest font-bold" style={{ color: '#94a3b8' }}>Auditorías</p>
                 </div>
-                <div className="w-px h-10" style={{ backgroundColor: '#E2E8F0' }} />
+                <div className="hidden sm:block w-px h-10" style={{ backgroundColor: '#E2E8F0' }} />
                 <div>
                   <p className="text-3xl font-black" style={{ color: '#6772E5' }}>98%</p>
                   <p className="text-xs uppercase tracking-widest font-bold" style={{ color: '#94a3b8' }}>Satisfacción</p>
                 </div>
-                <div className="w-px h-10" style={{ backgroundColor: '#E2E8F0' }} />
+                <div className="hidden sm:block w-px h-10" style={{ backgroundColor: '#E2E8F0' }} />
                 <div>
                   <p className="text-3xl font-black" style={{ color: '#0A2540' }}>4</p>
                   <p className="text-xs uppercase tracking-widest font-bold" style={{ color: '#94a3b8' }}>Pilares</p>
@@ -343,7 +343,7 @@ export default function HomePage() {
           <p className="text-xs uppercase tracking-[0.3em] font-black" style={{ color: '#059669' }}>
             Soluciones Especializadas
           </p>
-          <h2 className="text-4xl lg:text-5xl font-black" style={{ color: '#0A2540' }}>Nuestros Pilares de Servicio</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black" style={{ color: '#0A2540' }}>Nuestros Pilares de Servicio</h2>
           <p className="text-lg max-w-2xl mx-auto" style={{ color: '#64748b' }}>
             Cuatro líneas de servicio diseñadas para resolver las necesidades más críticas de empresas y profesionales.
           </p>
@@ -532,7 +532,7 @@ export default function HomePage() {
         <div className="container-custom">
           <div className="text-center mb-16 space-y-4">
             <p className="text-xs uppercase tracking-[0.3em] font-black" style={{ color: '#059669' }}>Ventajas Competitivas</p>
-            <h2 className="text-4xl lg:text-5xl font-black" style={{ color: '#0A2540' }}>¿Por Qué Elegirnos?</h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black" style={{ color: '#0A2540' }}>¿Por Qué Elegirnos?</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -564,7 +564,7 @@ export default function HomePage() {
       <section id="proceso" className="container-custom py-24">
         <div className="text-center mb-16 space-y-4">
           <p className="text-xs uppercase tracking-[0.3em] font-black" style={{ color: '#059669' }}>Metodología</p>
-          <h2 className="text-4xl lg:text-5xl font-black" style={{ color: '#0A2540' }}>Así Trabajamos</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black" style={{ color: '#0A2540' }}>Así Trabajamos</h2>
           <p className="text-lg max-w-xl mx-auto" style={{ color: '#64748b' }}>
             Un proceso claro y transparente desde tu primer contacto hasta la entrega final.
           </p>
@@ -595,7 +595,7 @@ export default function HomePage() {
         <div className="container-custom">
           <div className="text-center mb-16 space-y-4">
             <p className="text-xs uppercase tracking-[0.3em] font-black" style={{ color: '#059669' }}>Resultados Comprobables</p>
-            <h2 className="text-4xl lg:text-5xl font-black text-white">La Confianza se Demuestra</h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white">La Confianza se Demuestra</h2>
           </div>
 
           {/* Stats */}
@@ -694,7 +694,7 @@ export default function HomePage() {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12 space-y-4">
               <p className="text-xs uppercase tracking-[0.3em] font-black" style={{ color: '#059669' }}>Contáctenos</p>
-              <h2 className="text-4xl lg:text-5xl font-black" style={{ color: '#0A2540' }}>Cuéntanos tu Proyecto</h2>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black" style={{ color: '#0A2540' }}>Cuéntanos tu Proyecto</h2>
               <p className="text-lg max-w-xl mx-auto" style={{ color: '#64748b' }}>
                 Describa su necesidad y recibirá una propuesta personalizada en máximo 48 horas hábiles.
               </p>
