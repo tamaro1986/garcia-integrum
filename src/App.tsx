@@ -5,8 +5,11 @@ import {
   Globe, Zap, Award, FileCheck, Scale,
   Layers, BrainCircuit, Target, Lightbulb, MessageSquare
 } from "lucide-react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import Resources from "./components/Resources";
+import ArticleDetail from "./pages/ArticleDetail";
 
 interface FormData {
   nombre: string;
@@ -27,7 +30,7 @@ const initialForm: FormData = {
   descripcion: "", autorizado: false,
 };
 
-export default function App() {
+function MainLanding() {
   const [form, setForm] = useState<FormData>(initialForm);
   const [submitted, setSubmitted] = useState(false);
 
@@ -385,6 +388,9 @@ export default function App() {
           </div>
         </section>
 
+        {/* Recursos Educativos */}
+        <Resources />
+
         {/* Contacto */}
         <section id="contacto" className="bg-white/40 py-24 sm:py-32 border-t border-black/[0.03]">
           <div className="max-w-4xl mx-auto px-6">
@@ -604,5 +610,16 @@ export default function App() {
         </div>
       </footer>
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<MainLanding />} />
+        <Route path="/articulos/:id" element={<ArticleDetail />} />
+      </Routes>
+    </Router>
   );
 }

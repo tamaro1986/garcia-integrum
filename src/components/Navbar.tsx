@@ -10,6 +10,7 @@ export default function Navbar() {
     { label: "servicios", id: "servicios" },
     { label: "metodología", id: "metodologia" },
     { label: "resultados", id: "resultados" },
+    { label: "recursos", id: "recursos" },
     { label: "contacto", id: "contacto" }
   ];
 
