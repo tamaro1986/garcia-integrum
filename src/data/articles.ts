@@ -57,5 +57,28 @@ export const articles: Article[] = [
       "Esto te permite adquirir terrenos, casas, tramitar declaraciones del Impuesto sobre la Renta (si tienes ingresos gravados en el país), o incluso gestionar la adjudicación de herencias familiares de manera transparente, segura y sin interrumpir tu vida y trabajo en el extranjero.",
       "En Garcia Integrum, somos el aliado estratégico y de confianza en el territorio nacional para la diáspora. Diseñamos un canal exclusivo que les permite tener visibilidad total de sus asuntos legales y financieros en El Salvador, asegurando el estricto cumplimiento normativo local."
     ]
+  },
+  {
+    id: "ley-beneficios-proteccion-diaspora-salvador",
+    title: "Guía Completa: Ley Especial de Beneficios y Protección a la Diáspora",
+    description: "Conoce cómo los salvadoreños en el exterior pueden aplicar a exoneraciones fiscales de hasta $100,000 en menaje de casa y vehículos al retornar o invertir en el país.",
+    category: "Diáspora",
+    readTime: "5 min de lectura",
+    date: "22 de Junio, 2026",
+    seoKeywords: [
+      "ley de la diaspora el salvador",
+      "beneficios fiscales diaspora",
+      "exencion de impuestos el salvador",
+      "retorno salvadoreños",
+      "importacion de vehiculos el salvador",
+      "menaje de casa libre de impuestos"
+    ],
+    content: [
+      "La Ley Especial de Beneficios y Protección a la Diáspora y para el Retorno de Salvadoreños es una normativa estratégica diseñada para incentivar el retorno seguro y fomentar el flujo de inversiones de compatriotas radicados en el extranjero. Al estructurarse como un servicio de asistencia administrativa y técnica para trámites migratorios y aduanales, esta gestión se mantiene estrictamente dentro de los límites profesionales permitidos a un auditor de la Superintendencia del Sistema Financiero (SSF), evitando cualquier conflicto de interés o intermediación financiera con bancos y aseguradoras.",
+      "El pilar fundamental de esta ley es la atracción de capital, talento y el desarrollo de nuevas iniciativas empresariales, facilitando que el proceso de traslado de bienes sea lo más ágil y económico posible, tanto para quienes retornan de manera temporal como permanente.",
+      "El valor principal de esta normativa radica en su atractivo beneficio fiscal: otorga una exoneración del pago de impuestos de importación para bienes e insumos personales y de trabajo por un monto de hasta $100,000 USD. Los bienes libres de impuestos autorizados bajo esta exención especial comprenden el menaje de casa (muebles y enseres acumulados tras años de trabajo en el exterior), un vehículo para uso familiar o personal del retornante, y maquinaria o flotas vehiculares de trabajo destinados exclusivamente a la puesta en marcha de nuevos negocios y emprendimientos en territorio salvadoreño.",
+      "Para beneficiarse de este incentivo tributario, el servicio de gestión de Garcia Integrum se encarga de guiar y estructurar el cumplimiento de los pasos obligatorios: (1) El registro formal y acreditación del interesado ante la Dirección General de Migración y Extranjería; (2) La preparación de la Declaración Jurada requerida (a rendir por única vez) detallando el inventario de bienes que ingresan; (3) La verificación de récords penales y solvencias legales tanto en El Salvador como en el país de residencia; y (4) La confirmación y resolución de solvencias de alertas migratorias o retenciones judiciales vigentes.",
+      "Este servicio constituye una solución óptima y de gran valor para la diáspora. Debido a que toda la tramitación se efectúa directamente ante las oficinas de Aduanas, el Ministerio de Hacienda y Migración, usted obtiene un acompañamiento técnico robusto y transparente para proteger su patrimonio, mientras se respeta la integridad y compatibilidad regulatoria con el sector financiero regulado."
+    ]
   }
 ];
