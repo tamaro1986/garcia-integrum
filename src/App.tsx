@@ -3,7 +3,8 @@ import { motion } from "motion/react";
 import {
   Shield, BarChart3, Rocket, CheckCircle2, ArrowRight,
   Globe, Zap, Award, FileCheck, Scale,
-  Layers, BrainCircuit, Target, Lightbulb, MessageSquare
+  Layers, BrainCircuit, Target, Lightbulb, MessageSquare,
+  Mail, Phone, MapPin, Clock
 } from "lucide-react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
@@ -393,214 +394,302 @@ function MainLanding() {
 
         {/* Contacto */}
         <section id="contacto" className="bg-white/40 py-24 sm:py-32 border-t border-black/[0.03]">
-          <div className="max-w-4xl mx-auto px-6">
+          <div className="max-w-7xl mx-auto px-6 md:px-12">
             <div className="text-center mb-16 space-y-4">
               <span className="text-xs uppercase tracking-[0.25em] font-bold text-zinc-500 block">
                 Contacto
               </span>
               <h2 className="text-4xl sm:text-5xl font-bold font-display text-zinc-900">
-                Cuéntanos tu Proyecto
+                Ponte en Contacto con Nosotros
               </h2>
               <p className="text-zinc-600 max-w-lg mx-auto text-sm sm:text-base">
-                Escríbenos y nuestro equipo técnico te enviará una propuesta de solución personalizada en menos de 48 horas hábiles.
+                Escríbenos, llámanos o envíanos un mensaje. Nuestro equipo técnico te enviará una propuesta de solución personalizada en menos de 48 horas hábiles.
               </p>
             </div>
 
-            {submitted ? (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="bg-white border border-black/[0.05] rounded-xl p-10 text-center space-y-6 shadow-sm"
-              >
-                <div className="w-16 h-16 bg-emerald-50 text-emerald-500 rounded-full flex items-center justify-center mx-auto">
-                  <CheckCircle2 className="w-8 h-8" />
-                </div>
-                <h3 className="text-2xl font-bold font-display text-zinc-900">¡Mensaje Recibido con Éxito!</h3>
-                <p className="text-zinc-500 text-sm max-w-sm mx-auto">
-                  Hemos registrado tu solicitud correctamente. Te responderemos en un lapso máximo de <strong>48 horas hábiles</strong>.
-                </p>
-                <button
-                  onClick={() => { setSubmitted(false); setForm(initialForm); }}
-                  className="bg-[#1a1a1a] text-white text-xs font-bold uppercase tracking-wider px-6 py-2.5 rounded-lg hover:bg-black transition-all cursor-pointer"
-                >
-                  Enviar otra solicitud
-                </button>
-              </motion.div>
-            ) : (
-              <form id="contact-form" onSubmit={handleSubmit} className="bg-white border border-black/[0.05] rounded-xl p-8 sm:p-12 shadow-sm space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-2">
-                      Nombre completo <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      name="nombre"
-                      value={form.nombre}
-                      onChange={handleChange}
-                      required
-                      placeholder="Ej: Juan Martínez"
-                      className="w-full bg-zinc-50 border border-black/[0.05] rounded-md px-4 py-2.5 text-sm outline-none focus:bg-white focus:border-zinc-900 transition-all text-zinc-900"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-2">
-                      Empresa o Institución
-                    </label>
-                    <input
-                      type="text"
-                      name="empresa"
-                      value={form.empresa}
-                      onChange={handleChange}
-                      placeholder="Ej: Empresa S.A."
-                      className="w-full bg-zinc-50 border border-black/[0.05] rounded-md px-4 py-2.5 text-sm outline-none focus:bg-white focus:border-zinc-900 transition-all text-zinc-900"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-2">
-                      Correo electrónico <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={form.email}
-                      onChange={handleChange}
-                      required
-                      placeholder="correo@empresa.com"
-                      className="w-full bg-zinc-50 border border-black/[0.05] rounded-md px-4 py-2.5 text-sm outline-none focus:bg-white focus:border-zinc-900 transition-all text-zinc-900"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-2">
-                      Teléfono / WhatsApp <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="tel"
-                      name="telefono"
-                      value={form.telefono}
-                      onChange={handleChange}
-                      required
-                      placeholder="Ej: +503 7000-0000"
-                      className="w-full bg-zinc-50 border border-black/[0.05] rounded-md px-4 py-2.5 text-sm outline-none focus:bg-white focus:border-zinc-900 transition-all text-zinc-900"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-2">
-                      País <span className="text-red-500">*</span>
-                    </label>
-                    <select
-                      name="pais"
-                      value={form.pais}
-                      onChange={handleChange}
-                      required
-                      className="w-full bg-zinc-50 border border-black/[0.05] rounded-md px-4 py-2.5 text-sm outline-none focus:bg-white focus:border-zinc-900 transition-all text-zinc-900"
-                    >
-                      <option value="">Seleccione...</option>
-                      <option value="SV">El Salvador</option>
-                      <option value="US">Estados Unidos</option>
-                      <option value="CA">Canadá</option>
-                      <option value="ES">España</option>
-                      <option value="OTHER">Otro país</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-2">
-                      Línea de servicio <span className="text-red-500">*</span>
-                    </label>
-                    <select
-                      name="servicio"
-                      value={form.servicio}
-                      onChange={handleChange}
-                      required
-                      className="w-full bg-zinc-50 border border-black/[0.05] rounded-md px-4 py-2.5 text-sm outline-none focus:bg-white focus:border-zinc-900 transition-all text-zinc-900"
-                    >
-                      <option value="">Seleccione...</option>
-                      <option value="BI">Business Intelligence y Automatización</option>
-                      <option value="AUDIT">Auditoría Externa, Fiscal e Investigación</option>
-                      <option value="DEV">Desarrollo de Software, Apps y Soluciones IA</option>
-                      <option value="DIASPORA">Servicios Financieros (Diáspora)</option>
-                      <option value="UNSURE">No estoy seguro — necesito orientación</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-2">
-                      Nivel de urgencia
-                    </label>
-                    <select
-                      name="urgencia"
-                      value={form.urgencia}
-                      onChange={handleChange}
-                      className="w-full bg-zinc-50 border border-black/[0.05] rounded-md px-4 py-2.5 text-sm outline-none focus:bg-white focus:border-zinc-900 transition-all text-zinc-900"
-                    >
-                      <option value="">Seleccione...</option>
-                      <option value="IMMEDIATE">Inmediato (esta semana)</option>
-                      <option value="2WEEKS">1-2 semanas</option>
-                      <option value="1MONTH">Dentro de 1 mes</option>
-                      <option value="EXPLORING">Solo estoy explorando</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-2">
-                      Presupuesto estimado
-                    </label>
-                    <select
-                      name="presupuesto"
-                      value={form.presupuesto}
-                      onChange={handleChange}
-                      className="w-full bg-zinc-50 border border-black/[0.05] rounded-md px-4 py-2.5 text-sm outline-none focus:bg-white focus:border-zinc-900 transition-all text-zinc-900"
-                    >
-                      <option value="">Seleccione...</option>
-                      <option value="500-2K">$500 – $2,000</option>
-                      <option value="2K-5K">$2,000 – $5,000</option>
-                      <option value="5K-15K">$5,000 – $15,000</option>
-                      <option value="15K+">$15,000+</option>
-                      <option value="NEED_GUIDANCE">Necesito orientación</option>
-                    </select>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+              {/* Información de Contacto */}
+              <div className="lg:col-span-5 space-y-8">
+                <div className="bg-white border border-black/[0.05] rounded-xl p-8 shadow-sm space-y-8">
+                  <h3 className="text-xl font-bold font-display text-zinc-900">
+                    Datos de Contacto
+                  </h3>
+                  <p className="text-sm text-zinc-500 leading-relaxed">
+                    Estamos listos para asesorarte y llevar tu negocio al siguiente nivel con soluciones financieras y tecnológicas a tu medida.
+                  </p>
+
+                  <div className="space-y-6">
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 rounded-lg bg-zinc-50 text-zinc-900 shrink-0">
+                        <Mail className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-700 mb-1">Correo Electrónico</h4>
+                        <a href="mailto:garcia.integrum1@gmail.com" className="text-sm text-zinc-900 hover:underline font-semibold block break-all">
+                          garcia.integrum1@gmail.com
+                        </a>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 rounded-lg bg-zinc-50 text-zinc-900 shrink-0">
+                        <Phone className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-700 mb-1">Teléfono / WhatsApp</h4>
+                        <a href="https://wa.me/50375966836" target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-900 hover:underline font-semibold block">
+                          +503 7596-6836
+                        </a>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 rounded-lg bg-zinc-50 text-zinc-900 shrink-0">
+                        <MapPin className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-700 mb-1">Ubicación</h4>
+                        <p className="text-sm text-zinc-900 font-semibold">
+                          San Salvador, El Salvador
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 rounded-lg bg-zinc-50 text-zinc-900 shrink-0">
+                        <Clock className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-700 mb-1">Horario de Atención</h4>
+                        <p className="text-sm text-zinc-900 font-semibold">
+                          Lunes a Viernes: 8:00 AM - 5:00 PM
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-2">
-                    Descripción del proyecto o requerimiento <span className="text-red-500">*</span>
-                  </label>
-                  <textarea
-                    name="descripcion"
-                    value={form.descripcion}
-                    onChange={handleChange}
-                    required
-                    rows={4}
-                    placeholder="Describa brevemente su requerimiento, retos técnicos o el problema que busca resolver..."
-                    className="w-full bg-zinc-50 border border-black/[0.05] rounded-md px-4 py-2.5 text-sm outline-none focus:bg-white focus:border-zinc-900 transition-all text-zinc-900 resize-none"
-                  />
+                {/* Diaspora direct shortcut */}
+                <div className="bg-[#1a1a1a] text-white rounded-xl p-8 border border-zinc-800 space-y-4">
+                  <h4 className="text-sm font-bold uppercase tracking-wider text-[#9fff00]">Atención Diáspora</h4>
+                  <p className="text-xs text-zinc-300 leading-relaxed">
+                    Si eres salvadoreño en el exterior, puedes contactarnos directamente por WhatsApp para una asesoría remota e inmediata.
+                  </p>
+                  <a
+                    href="https://wa.me/50375966836"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-[#9fff00] text-black text-xs font-bold uppercase tracking-wider px-4 py-2.5 rounded-lg hover:bg-lime-400 transition-all font-sans cursor-pointer"
+                  >
+                    <MessageSquare className="w-3.5 h-3.5" /> WhatsApp Internacional
+                  </a>
                 </div>
+              </div>
 
-                <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                  <button
-                    type="submit"
-                    className="bg-[#1a1a1a] text-white text-xs font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg hover:bg-black transition-all cursor-pointer flex-1 justify-center flex items-center gap-1.5"
+              {/* Formulario */}
+              <div className="lg:col-span-7">
+                {submitted ? (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="bg-white border border-black/[0.05] rounded-xl p-10 text-center space-y-6 shadow-sm"
                   >
-                    Enviar propuesta por correo <ArrowRight className="w-4 h-4" />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={handleWhatsApp}
-                    className="bg-zinc-900 hover:bg-black text-[#9fff00] text-xs font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg transition-all cursor-pointer flex-1 justify-center flex items-center gap-1.5 border border-zinc-800"
-                  >
-                    <MessageSquare className="w-4 h-4 text-[#9fff00]" /> Contactar vía WhatsApp
-                  </button>
-                </div>
-              </form>
-            )}
+                    <div className="w-16 h-16 bg-emerald-50 text-emerald-500 rounded-full flex items-center justify-center mx-auto">
+                      <CheckCircle2 className="w-8 h-8" />
+                    </div>
+                    <h3 className="text-2xl font-bold font-display text-zinc-900">¡Mensaje Recibido con Éxito!</h3>
+                    <p className="text-zinc-500 text-sm max-w-sm mx-auto">
+                      Hemos registrado tu solicitud correctamente. Te responderemos en un lapso máximo de <strong>48 horas hábiles</strong>.
+                    </p>
+                    <button
+                      onClick={() => { setSubmitted(false); setForm(initialForm); }}
+                      className="bg-[#1a1a1a] text-white text-xs font-bold uppercase tracking-wider px-6 py-2.5 rounded-lg hover:bg-black transition-all cursor-pointer"
+                    >
+                      Enviar otra solicitud
+                    </button>
+                  </motion.div>
+                ) : (
+                  <form id="contact-form" onSubmit={handleSubmit} className="bg-white border border-black/[0.05] rounded-xl p-8 sm:p-12 shadow-sm space-y-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-2">
+                          Nombre completo <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          type="text"
+                          name="nombre"
+                          value={form.nombre}
+                          onChange={handleChange}
+                          required
+                          placeholder="Ej: Juan Martínez"
+                          className="w-full bg-zinc-50 border border-black/[0.05] rounded-md px-4 py-2.5 text-sm outline-none focus:bg-white focus:border-zinc-900 transition-all text-zinc-900"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-2">
+                          Empresa o Institución
+                        </label>
+                        <input
+                          type="text"
+                          name="empresa"
+                          value={form.empresa}
+                          onChange={handleChange}
+                          placeholder="Ej: Empresa S.A."
+                          className="w-full bg-zinc-50 border border-black/[0.05] rounded-md px-4 py-2.5 text-sm outline-none focus:bg-white focus:border-zinc-900 transition-all text-zinc-900"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-2">
+                          Correo electrónico <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          type="email"
+                          name="email"
+                          value={form.email}
+                          onChange={handleChange}
+                          required
+                          placeholder="correo@empresa.com"
+                          className="w-full bg-zinc-50 border border-black/[0.05] rounded-md px-4 py-2.5 text-sm outline-none focus:bg-white focus:border-zinc-900 transition-all text-zinc-900"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-2">
+                          Teléfono / WhatsApp <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          type="tel"
+                          name="telefono"
+                          value={form.telefono}
+                          onChange={handleChange}
+                          required
+                          placeholder="Ej: +503 7000-0000"
+                          className="w-full bg-zinc-50 border border-black/[0.05] rounded-md px-4 py-2.5 text-sm outline-none focus:bg-white focus:border-zinc-900 transition-all text-zinc-900"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-2">
+                          País <span className="text-red-500">*</span>
+                        </label>
+                        <select
+                          name="pais"
+                          value={form.pais}
+                          onChange={handleChange}
+                          required
+                          className="w-full bg-zinc-50 border border-black/[0.05] rounded-md px-4 py-2.5 text-sm outline-none focus:bg-white focus:border-zinc-900 transition-all text-zinc-900"
+                        >
+                          <option value="">Seleccione...</option>
+                          <option value="SV">El Salvador</option>
+                          <option value="US">Estados Unidos</option>
+                          <option value="CA">Canadá</option>
+                          <option value="ES">España</option>
+                          <option value="OTHER">Otro país</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-2">
+                          Línea de servicio <span className="text-red-500">*</span>
+                        </label>
+                        <select
+                          name="servicio"
+                          value={form.servicio}
+                          onChange={handleChange}
+                          required
+                          className="w-full bg-zinc-50 border border-black/[0.05] rounded-md px-4 py-2.5 text-sm outline-none focus:bg-white focus:border-zinc-900 transition-all text-zinc-900"
+                        >
+                          <option value="">Seleccione...</option>
+                          <option value="BI">Business Intelligence y Automatización</option>
+                          <option value="AUDIT">Auditoría Externa, Fiscal e Investigación</option>
+                          <option value="DEV">Desarrollo de Software, Apps y Soluciones IA</option>
+                          <option value="DIASPORA">Servicios Financieros (Diáspora)</option>
+                          <option value="UNSURE">No estoy seguro — necesito orientación</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-2">
+                          Nivel de urgencia
+                        </label>
+                        <select
+                          name="urgencia"
+                          value={form.urgencia}
+                          onChange={handleChange}
+                          className="w-full bg-zinc-50 border border-black/[0.05] rounded-md px-4 py-2.5 text-sm outline-none focus:bg-white focus:border-zinc-900 transition-all text-zinc-900"
+                        >
+                          <option value="">Seleccione...</option>
+                          <option value="IMMEDIATE">Inmediato (esta semana)</option>
+                          <option value="2WEEKS">1-2 semanas</option>
+                          <option value="1MONTH">Dentro de 1 mes</option>
+                          <option value="EXPLORING">Solo estoy explorando</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-2">
+                          Presupuesto estimado
+                        </label>
+                        <select
+                          name="presupuesto"
+                          value={form.presupuesto}
+                          onChange={handleChange}
+                          className="w-full bg-zinc-50 border border-black/[0.05] rounded-md px-4 py-2.5 text-sm outline-none focus:bg-white focus:border-zinc-900 transition-all text-zinc-900"
+                        >
+                          <option value="">Seleccione...</option>
+                          <option value="500-2K">$500 – $2,000</option>
+                          <option value="2K-5K">$2,000 – $5,000</option>
+                          <option value="5K-15K">$5,000 – $15,000</option>
+                          <option value="15K+">$15,000+</option>
+                          <option value="NEED_GUIDANCE">Necesito orientación</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-2">
+                        Descripción del proyecto o requerimiento <span className="text-red-500">*</span>
+                      </label>
+                      <textarea
+                        name="descripcion"
+                        value={form.descripcion}
+                        onChange={handleChange}
+                        required
+                        rows={4}
+                        placeholder="Describa brevemente su requerimiento, retos técnicos o el problema que busca resolver..."
+                        className="w-full bg-zinc-50 border border-black/[0.05] rounded-md px-4 py-2.5 text-sm outline-none focus:bg-white focus:border-zinc-900 transition-all text-zinc-900 resize-none"
+                      />
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                      <button
+                        type="submit"
+                        className="bg-[#1a1a1a] text-white text-xs font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg hover:bg-black transition-all cursor-pointer flex-1 justify-center flex items-center gap-1.5"
+                      >
+                        Enviar propuesta por correo <ArrowRight className="w-4 h-4" />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={handleWhatsApp}
+                        className="bg-zinc-900 hover:bg-black text-[#9fff00] text-xs font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg transition-all cursor-pointer flex-1 justify-center flex items-center gap-1.5 border border-zinc-800"
+                      >
+                        <MessageSquare className="w-4 h-4 text-[#9fff00]" /> Contactar vía WhatsApp
+                      </button>
+                    </div>
+                  </form>
+                )}
+              </div>
+            </div>
           </div>
         </section>
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-black/[0.03] bg-zinc-50 py-12 text-center text-xs text-zinc-500">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <span className="font-display font-bold text-zinc-900">garcia integrum</span>
-            <span>© 2026. Todos los derechos reservados.</span>
+      <footer className="border-t border-black/[0.03] bg-zinc-50 py-12 text-xs text-zinc-500">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col items-center md:items-start gap-2">
+            <div className="flex items-center gap-2">
+              <span className="font-display font-bold text-zinc-900 text-sm">garcia integrum</span>
+              <span>© 2026. Todos los derechos reservados.</span>
+            </div>
+            <p className="text-zinc-400 text-[11px] text-center md:text-left">
+              garcia.integrum1@gmail.com | +503 7596-6836 | San Salvador, El Salvador
+            </p>
           </div>
           <div className="flex gap-6">
             <a href="#servicios" className="hover:text-zinc-950 transition-colors">Servicios</a>
